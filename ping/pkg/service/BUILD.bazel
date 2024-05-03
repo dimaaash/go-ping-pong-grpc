@@ -5,5 +5,4 @@ go_library(
     srcs = ["ping.go"],
     importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/pkg/service",
     visibility = ["//visibility:public"],
-    deps = ["//protos/gen/ping"],
 )
