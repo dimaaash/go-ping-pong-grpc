@@ -1,7 +1,7 @@
 package service
 
 import (
-	pb2 "github.com/dimaaash/go-ping-pong-grpc/protos/ping"
+	pb2 "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
 )
 
 // type PingService interface {
