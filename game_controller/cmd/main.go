@@ -27,7 +27,9 @@ func main() {
 	pingSvc := pingc.InitPingClient(&c)
 	pongSvc := pongc.InitPongClient(&c)
 
-	pingSvc.Ping(context.Background(), &pingpb.PingRequest{})
+	pingSvc.Ping(context.Background(), &pingpb.PingRequest{
+		In: "Ping from GameController",
+	})
 
 	pongSvc.Pong(context.Background(), &pongpb.PongRequest{})
 

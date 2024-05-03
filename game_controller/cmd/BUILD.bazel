@@ -18,4 +18,6 @@ go_binary(
     name = "cmd",
     embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
+    goarch = "amd64",
+    goos = "linux",
 )

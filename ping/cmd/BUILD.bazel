@@ -1,4 +1,15 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image")
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+platform(
+    name = "linux_x86_64",
+    constraint_values = [
+       "@platforms//cpu:x86_64",
+       "@platforms//os:linux",
+    ],
+)
 
 go_library(
     name = "cmd_lib",
@@ -15,5 +26,70 @@ go_library(
 go_binary(
     name = "ping_cmd",
     embed = [":cmd_lib"],
+    goarch = "amd64",
+    goos = "linux",
+    # pure = "on",
     visibility = ["//visibility:public"],
 )
+
+# container_image(
+#     name = "image",
+#     base = "@go_base//image",
+#     entrypoint = ["/ping_cmd"],
+#     files = [
+#         ":ping_cmd",
+#     ],
+#     ports = [
+#         "5000/tcp",
+#     ],
+# )
+
+# go_image(
+#     name = "cmd_go_image",
+#     embed = [":cmd_lib"],
+#     goarch = "amd64",
+#     goos = "linux",
+#     pure = "on",
+# )
+
+# container_image(
+#     name = "image",
+#     base = "@alpine_linux_amd64//image",
+#     entrypoint = ["/ping_cmd"],
+#     files = [":ping_cmd"],
+# )
+
+# pkg_tar(
+#     name = "ping-app-tar",
+#     srcs = [":ping_cmd"],
+#     package_dir = "/",
+# )
+
+# container_image(
+#     name = "image",
+#     # base = "@alpine_linux_amd64//image",
+#     base = "@go_image_base//image",
+#     # entrypoint = ["/api"],
+#     # files = [":api"],
+# )
+
+# go_image(
+#     name = "ping_cmd_go_image",
+#     base = "@go_image_base//image",
+#     embed = [":cmd_lib"],
+#     # goarch = "amd64",
+#     # goos = "linux",
+#     # pure = "on",
+# )
+
+# container_image(
+#     name = "docker",
+#     base = ":ping_cmd_go_image",
+# )
+
+# container_image(
+#     name = "image",
+#     base = "@alpine_linux_amd64//image",
+#     entrypoint = ["/api"],
+#     files = [":api"],
+# )
