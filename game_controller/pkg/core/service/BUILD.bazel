@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "service",
+    srcs = ["controller.go"],
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/service",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//game_controller/pkg/core/ping_client",
+        "//protos/ping",
+    ],
+)
