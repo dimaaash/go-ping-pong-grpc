@@ -1,1 +1,3 @@
 protos/gen
+ping/pkg/pb
+pong/pkg/pb
