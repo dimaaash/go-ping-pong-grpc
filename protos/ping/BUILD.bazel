@@ -11,7 +11,7 @@ proto_library(
 go_proto_library(
     name = "pb_go_proto",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = "pkg/pb",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/pkg/pb",
     proto = ":pb_proto",
     visibility = ["//visibility:public"],
 )
@@ -19,7 +19,7 @@ go_proto_library(
 go_library(
     name = "pb",
     embed = [":pb_go_proto"],
-    importpath = "pkg/pb",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/pkg/pb",
     visibility = ["//visibility:public"],
 )
 
