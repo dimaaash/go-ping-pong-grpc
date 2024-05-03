@@ -8,9 +8,9 @@ go_library(
     deps = [
         "//game_controller/pkg/config",
         "//game_controller/pkg/core/ping_client",
-        "//game_controller/pkg/core/service",
+        "//game_controller/pkg/core/pong_client",
         "//protos/ping",
-        "@org_golang_google_grpc//:go_default_library",
+        "//protos/pong",
     ],
 )
 

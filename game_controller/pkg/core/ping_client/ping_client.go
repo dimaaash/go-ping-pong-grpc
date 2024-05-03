@@ -18,7 +18,7 @@ func InitPingClient(c *config.Config) *PingClient {
 
 	log.Println("===> [PingClient]: calling PingService... <===")
 
-	cc, err := grpc.Dial(c.OrderSvcUrl, grpc.WithInsecure())
+	cc, err := grpc.Dial(c.PingSvcUrl, grpc.WithInsecure())
 
 	if err != nil {
 		fmt.Println("Could not connect:", err)

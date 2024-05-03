@@ -8,6 +8,9 @@ type Config struct {
 	ProductSvcUrl     string `mapstructure:"PRODUCT_SVC_URL"`
 	OrderSvcUrl       string `mapstructure:"ORDER_SVC_URL"`
 	ShipManagerSvcUrl string `mapstructure:"SHIP_MANAGER_SVC_URL"`
+
+	PingSvcUrl string `mapstructure:"PING_SVC_URL"`
+	PongSvcUrl string `mapstructure:"PONG_SVC_URL"`
 }
 
 func LoadConfig() (c Config, err error) {

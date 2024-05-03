@@ -14,11 +14,11 @@ type PongClient struct {
 	pc pb.PongServiceClient
 }
 
-func InitPingClient(c *config.Config) *PongClient {
+func InitPongClient(c *config.Config) *PongClient {
 
 	log.Println("===> [PongClient]: calling PongService... <===")
 
-	cc, err := grpc.Dial(c.OrderSvcUrl, grpc.WithInsecure())
+	cc, err := grpc.Dial(c.PongSvcUrl, grpc.WithInsecure())
 
 	if err != nil {
 		fmt.Println("Could not connect:", err)

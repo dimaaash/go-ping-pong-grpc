@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"context"
 	"log"
-	"net"
 
 	"github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/config"
 	pingc "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/ping_client"
-	cs "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/service"
-	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
-	"google.golang.org/grpc"
+	pongc "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/pong_client"
+	pingpb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
+	pongpb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/pong"
 )
 
 func main() {
@@ -19,30 +18,17 @@ func main() {
 		log.Fatalln("Failed at config", err)
 	}
 
-	lis, err := net.Listen("tcp", c.Port)
+	// lis, err := net.Listen("tcp", c.Port)
 
 	if err != nil {
 		log.Fatalln("Failed to listing:", err)
 	}
 
 	pingSvc := pingc.InitPingClient(&c)
+	pongSvc := pongc.InitPongClient(&c)
 
-	if err != nil {
-		log.Fatalln("Failed to listing:", err)
-	}
+	pingSvc.Ping(context.Background(), &pingpb.PingRequest{})
 
-	fmt.Println("PingSvc on", c.Port)
-
-	s := cs.ControllerServer{
-		PingSvc: pingSvc,
-	}
-
-	grpcServer := grpc.NewServer()
-
-	pb.RegisterPingServiceServer(grpcServer, &s)
-
-	if err := grpcServer.Serve(lis); err != nil {
-		log.Fatalln("Failed to serve:", err)
-	}
+	pongSvc.Pong(context.Background(), &pongpb.PongRequest{})
 
 }
