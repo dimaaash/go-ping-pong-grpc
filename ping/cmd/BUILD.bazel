@@ -30,7 +30,7 @@ go_binary(
 go_library(
     name = "cmd_lib",
     srcs = ["main.go"],
-    importpath = "github.com/example/app1/ping/cmd",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/cmd",
     visibility = ["//visibility:private"],
     deps = [
         "@com_github_dimaaash_go_ping_pong_grpc//ping/pkg/service:go_default_library",

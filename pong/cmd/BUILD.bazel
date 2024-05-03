@@ -29,6 +29,6 @@ go_binary(
 go_library(
     name = "cmd_lib",
     srcs = ["main.go"],
-    importpath = "github.com/example/app1/pong/cmd",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/cmd",
     visibility = ["//visibility:private"],
 )
