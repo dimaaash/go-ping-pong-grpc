@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pong;
 
-option go_package = "github.com/dimaaash/go-ping-pong-grpc/pong/pkg/pb";
+option go_package = "github.com/dimaaash/go-ping-pong-grpc/protos/gen/pong";
 
 service PongService {
     rpc Pong (PongRequest) returns (PongResponse);
