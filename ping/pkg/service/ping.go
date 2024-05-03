@@ -1,20 +1,31 @@
 package service
 
-// import (
-// 	pb "github.com/dimaaash/go-ping-pong-grpc/ping/pkg/pb"
-// )
+import (
+	"context"
+
+	"log"
+
+	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
+)
 
 // type PingService interface {
 // 	Ping() string
 // }
 
 type PingServer struct {
-	// pb2.UnimplementedHelloWorldServiceServer
+	pb.UnimplementedPingServiceServer
 }
 
-func (s *PingServer) Ping() string {
+func (s *PingServer) Ping(ctx context.Context, req *pb.PingRequest) (*pb.PingResponse, error) {
 
-	// var a pb.PingRequest
+	// var a = &pb.PingRequest{
+	// 	In: "ping",
+	// }
 
-	return "ping!"
+	log.Println("===> PingServer: Ping request received... <===")
+
+	return &pb.PingResponse{
+		Status: 0,
+		Error:  "",
+	}, nil
 }

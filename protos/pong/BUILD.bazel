@@ -37,4 +37,3 @@ go_library(
 #     importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/pkg/pb",
 #     visibility = ["//visibility:public"],
 # )
-

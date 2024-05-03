@@ -5,6 +5,11 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/cmd",
     visibility = ["//visibility:private"],
+    deps = [
+        "//ping/pkg/service",
+        "//protos/ping",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
 )
 
 go_binary(

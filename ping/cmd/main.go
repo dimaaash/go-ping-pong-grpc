@@ -2,22 +2,31 @@ package main
 
 import (
 	"log"
-	// "github.com/dimaaash/go-ping-pong-grpc/ping/pkg/service"
-	// "google.golang.org/grpc"
+	"net"
+
+	"github.com/dimaaash/go-ping-pong-grpc/ping/pkg/service"
+	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
+	"google.golang.org/grpc"
 )
 
 func main() {
 
 	log.Println("Ping Server starting...")
 
-	// grpcServer := grpc.NewServer()
+	lis, err := net.Listen("tcp", "50003")
 
-	// s := service.Server{}
+	if err != nil {
+		log.Fatalln("Failed to listing:", err)
+	}
 
-	// // pb.RegisterOrderServiceServer(grpcServer, &s)
+	grpcServer := grpc.NewServer()
 
-	// if err := grpcServer.Serve(50003); err != nil {
-	// 	log.Fatalln("Failed to serve:", err)
-	// }
+	s := service.PingServer{}
+
+	pb.RegisterPingServiceServer(grpcServer, &s)
+
+	if err := grpcServer.Serve(lis); err != nil {
+		log.Fatalln("Failed to serve:", err)
+	}
 
 }
