@@ -1,8 +1,29 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
+
 go_library(
-    name = "cmd",
+    name = "cmd_lib",
     srcs = ["main.go"],
-    importpath = "github.com/example/app1/pong/cmd",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/cmd",
+    visibility = ["//visibility:private"],
+    deps = [
+        # "//pkg/config",
+        # "//pkg/db",
+        "//pkg/services",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "cmd",
+    embed = [":cmd_lib"],
     visibility = ["//visibility:public"],
 )
+
+
+# go_library(
+#     name = "cmd",
+#     srcs = ["main.go"],
+#     importpath = "github.com/example/app1/pong/cmd",
+#     visibility = ["//visibility:public"],
+# )
