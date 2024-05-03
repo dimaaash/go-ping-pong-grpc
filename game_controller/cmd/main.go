@@ -1,24 +1,35 @@
-package ping_client
+package main
 
 import (
 	"fmt"
+	"log"
+	"net"
 
+
+	pc "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/ping_client"
+)
 	"github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/config"
-	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
-	"google.golang.org/grpc"
 )
 
-type PingClient struct {
-	pc pb.PingServiceClient
-}
-
-func InitPingClient(c *config.Config) *PingClient {
-
-	cc, err := grpc.Dial(c.OrderSvcUrl, grpc.WithInsecure())
+func main() {
+	c, err := config.LoadConfig()
 
 	if err != nil {
-		fmt.Println("Could not connect:", err)
+		log.Fatalln("Failed at config", err)
 	}
 
-	return &pb.NewPingServiceClient(cc)
+	lis, err := net.Listen("tcp", c.Port)
+
+	if err != nil {
+		log.Fatalln("Failed to listing:", err)
+	}
+
+	pingSvc := pc.InitProductServiceClient(c.ProductSvcUrl)
+
+	if err != nil {
+		log.Fatalln("Failed to listing:", err)
+	}
+
+	fmt.Println("Order Svc on", c.Port)
+
 }
