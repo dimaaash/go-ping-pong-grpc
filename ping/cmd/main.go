@@ -5,7 +5,7 @@ import (
 	"net"
 
 	"github.com/dimaaash/go-ping-pong-grpc/ping/pkg/service"
-	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
+	pingpb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/ping"
 	"google.golang.org/grpc"
 )
 
@@ -23,7 +23,7 @@ func main() {
 
 	s := service.PingServer{}
 
-	pb.RegisterPingServiceServer(grpcServer, &s)
+	pingpb.RegisterPingServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalln("Failed to serve:", err)

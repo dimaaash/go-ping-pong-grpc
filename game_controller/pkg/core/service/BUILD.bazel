@@ -9,5 +9,6 @@ go_library(
         "//game_controller/pkg/core/ping_client",
         "//game_controller/pkg/core/pong_client",
         "//protos/ping",
+        "//protos/pong",
     ],
 )
