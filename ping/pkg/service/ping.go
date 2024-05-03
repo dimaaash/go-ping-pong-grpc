@@ -1,7 +1,7 @@
 package service
 
 import (
-	pb "github.com/dimaaash/go-ping-pong-grpc/protos/ping/pb"
+	pb2 "github.com/dimaaash/go-ping-pong-grpc/protos/ping"
 )
 
 // type PingService interface {
@@ -9,10 +9,12 @@ import (
 // }
 
 type PingServer struct {
-	pb.UnimplementedHelloWorldServiceServer
+	pb2.UnimplementedHelloWorldServiceServer
 }
 
 func (s *PingServer) Ping() string {
+
+	var a pb2.PingRequest
 
 	return "ping!"
 }
