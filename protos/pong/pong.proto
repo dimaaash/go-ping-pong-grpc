@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service PongService {
+    rpc Pong (PongRequest) returns (PongResponse);
+}
+
+message PongRequest {
+    string in = 1;    
+}
+
+message PongResponse {
+    int64 status = 1;
+    string error = 2;
+}
+

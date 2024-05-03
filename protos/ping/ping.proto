@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service PingService {
+    rpc Ping (PingRequest) returns (PingResponse);
+}
+
+message PingRequest {
+    string in = 1;    
+}
+
+message PingResponse {
+    int64 status = 1;
+    string error = 2;
+}
+
