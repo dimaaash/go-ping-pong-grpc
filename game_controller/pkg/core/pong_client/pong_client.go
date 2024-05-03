@@ -27,11 +27,11 @@ func InitPingClient(c *config.Config) *PongClient {
 	log.Println("===> [PongClient]: PongService OK... <===")
 
 	return &PongClient{
-		pc: pb.NewPingServiceClient(cc),
+		pc: pb.NewPongServiceClient(cc),
 	}
 }
 
-func (pc *PongClient) Pong(ctx context.Context, req *pb.PingRequest) (*pb.PongResponse, error) {
+func (pc *PongClient) Pong(ctx context.Context, req *pb.PongRequest) (*pb.PongResponse, error) {
 
 	log.Println("===> [PongClient]: calling Pong method... <===")
 

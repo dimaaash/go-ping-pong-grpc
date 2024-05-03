@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "pong_client",
+    srcs = ["pong_client.go"],
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/core/pong_client",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//game_controller/pkg/config",
+        "//protos/pong",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
