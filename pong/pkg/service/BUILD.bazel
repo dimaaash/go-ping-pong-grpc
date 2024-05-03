@@ -5,4 +5,5 @@ go_library(
     srcs = ["pong.go"],
     importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/pkg/service",
     visibility = ["//visibility:public"],
+    deps = ["//protos/pong"],
 )

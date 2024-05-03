@@ -18,10 +18,6 @@ type PingServer struct {
 
 func (s *PingServer) Ping(ctx context.Context, req *pb.PingRequest) (*pb.PingResponse, error) {
 
-	// var a = &pb.PingRequest{
-	// 	In: "ping",
-	// }
-
 	log.Println("===> PingServer: Ping request received... <===")
 
 	return &pb.PingResponse{
