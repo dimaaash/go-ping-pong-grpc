@@ -17,8 +17,8 @@ func main() {
 
 	// pb.RegisterOrderServiceServer(grpcServer, &s)
 
-	// if err := grpcServer.Serve(lis); err != nil {
-	// 	log.Fatalln("Failed to serve:", err)
-	// }
+	if err := grpcServer.Serve(50003); err != nil {
+		log.Fatalln("Failed to serve:", err)
+	}
 
 }

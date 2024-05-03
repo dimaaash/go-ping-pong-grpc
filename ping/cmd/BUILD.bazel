@@ -5,4 +5,5 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/example/app1/ping/cmd",
     visibility = ["//visibility:public"],
+    deps = ["@org_golang_google_grpc//:go_default_library"],
 )
