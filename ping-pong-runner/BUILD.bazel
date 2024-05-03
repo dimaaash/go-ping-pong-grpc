@@ -6,3 +6,10 @@ go_library(
     importpath = "github.com/example/app1/ping-pong-runner",
     visibility = ["//visibility:public"],
 )
+
+go_library(
+    name = "ping-pong-runner_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping-pong-runner",
+    visibility = ["//visibility:private"],
+)

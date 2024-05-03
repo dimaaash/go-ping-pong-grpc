@@ -13,6 +13,13 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 #     ],
 # )
 
+go_library(
+    name = "cmd_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/cmd",
+    visibility = ["//visibility:private"],
+)
+
 go_binary(
     name = "ping_cmd",
     embed = [":cmd_lib"],
@@ -26,10 +33,3 @@ go_binary(
 #     visibility = ["//visibility:public"],
 #     deps = ["@org_golang_google_grpc//:go_default_library"],
 # )
-
-go_library(
-    name = "cmd_lib",
-    srcs = ["main.go"],
-    importpath = "github.com/dimaaash/go-ping-pong-grpc/ping/cmd",
-    visibility = ["//visibility:public"],
-)

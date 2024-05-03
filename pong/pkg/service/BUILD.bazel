@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "service",
     srcs = ["pong.go"],
-    importpath = "github.com/example/app1/pong/pkg/service",
+    importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/pkg/service",
     visibility = ["//visibility:public"],
 )

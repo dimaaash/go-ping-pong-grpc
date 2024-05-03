@@ -1,6 +1,6 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
-# gazelle:prefix github.com/example/app1
+# gazelle:prefix github.com/dimaaash/go-ping-pong-grpc
 gazelle(name = "gazelle")
 
 gazelle(
