@@ -17,7 +17,7 @@ type PongServer struct {
 
 func (s *PongServer) Pong(ctx context.Context, req *pb.PongRequest) (*pb.PongResponse, error) {
 
-	log.Println("===> PongServer: Pong request received... <===")
+	log.Println("===> [PongServer]: PONG request received... <===")
 
 	return &pb.PongResponse{
 		Status: 0,

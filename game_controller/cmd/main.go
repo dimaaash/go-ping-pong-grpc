@@ -31,7 +31,7 @@ func main() {
 		log.Fatalln("Failed to listing:", err)
 	}
 
-	fmt.Println("Order Svc on", c.Port)
+	fmt.Println("PingSvc on", c.Port)
 
 	s := cs.ControllerServer{
 		PingSvc: pingSvc,
