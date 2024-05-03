@@ -1,3 +1,3 @@
-module go-ping-pong-grpc
+module github.com/dimaaash/go-ping-pong-grpc
 
 go 1.20
