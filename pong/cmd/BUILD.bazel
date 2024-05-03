@@ -1,17 +1,17 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
-go_library(
-    name = "pong_cmd_lib",
-    srcs = ["main.go"],
-    importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/cmd",
-    visibility = ["//visibility:private"],
-    deps = [
-        # "//pkg/config",
-        # "//pkg/db",
-        "//pkg/services",
-        "@org_golang_google_grpc//:go_default_library",
-    ],
-)
+# go_library(
+#     name = "pong_cmd_lib",
+#     srcs = ["main.go"],
+#     importpath = "github.com/dimaaash/go-ping-pong-grpc/pong/cmd",
+#     visibility = ["//visibility:private"],
+#     deps = [
+#         # "//pkg/config",
+#         # "//pkg/db",
+#         "//pkg/services",
+#         "@org_golang_google_grpc//:go_default_library",
+#     ],
+# )
 
 go_binary(
     name = "pong_cmd",
