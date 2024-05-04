@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/dimaaash/go-ping-pong-grpc/game_controller/pkg/config"
 	pb "github.com/dimaaash/go-ping-pong-grpc/protos/gen/pong"
 	"google.golang.org/grpc"
 )
@@ -14,11 +13,11 @@ type PongClient struct {
 	pc pb.PongServiceClient
 }
 
-func InitPongClient(c *config.Config) *PongClient {
+func InitPongClient() *PongClient {
 
 	log.Println("===> [PongClient]: calling PongService... <===")
 
-	cc, err := grpc.Dial(c.PongSvcUrl, grpc.WithInsecure())
+	cc, err := grpc.Dial("localhost:50060", grpc.WithInsecure())
 
 	if err != nil {
 		fmt.Println("Could not connect:", err)

@@ -13,7 +13,7 @@ func main() {
 
 	log.Println("Pong Server starting...")
 
-	lis, err := net.Listen("tcp", "50060")
+	lis, err := net.Listen("tcp", ":50060")
 
 	if err != nil {
 		log.Fatalln("Failed to listing:", err)
